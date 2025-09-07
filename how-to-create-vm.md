@@ -1,88 +1,88 @@
 🛠️ Steps to Create a VM on AWS (EC2)
 1. Log in
 
-Go to AWS Management Console.
+- Go to AWS Management Console.
 
-Sign in with your AWS account.
+- Sign in with your AWS account.
 
 2. Open EC2 Service
 
-From the AWS console → Search for EC2 → Click EC2 Dashboard.
+- From the AWS console → Search for EC2 → Click EC2 Dashboard.
 
-Click Launch Instance.
+- Click Launch Instance.
 
 3. Choose an Amazon Machine Image (AMI)
 
-Select the operating system you want for your VM:
+- Select the operating system you want for your VM:
 
-Amazon Linux 2
-
-Ubuntu Server
-
-Windows Server
-
-RedHat, etc.
+  - Amazon Linux 2
+  
+  - Ubuntu Server
+  
+  - Windows Server
+  
+  - RedHat, etc.
 
 4. Choose an Instance Type
 
-Select CPU/RAM configuration.
+- Select CPU/RAM configuration.
 
-Example:
+  - Example:
 
-t2.micro (1 vCPU, 1 GB RAM) → Free tier eligible.
+  - t2.micro (1 vCPU, 1 GB RAM) → Free tier eligible.
 
-Larger sizes available for production workloads.
+  - Larger sizes available for production workloads.
 
 5. Configure Instance Details
 
-Number of instances.
+- Number of instances.
 
-Networking (VPC, Subnet, Public IP).
+- Networking (VPC, Subnet, Public IP).
 
-IAM role (if needed).
+- IAM role (if needed).
 
 6. Add Storage
 
-Default: 8 GB EBS volume.
+- Default: 8 GB EBS volume.
 
-Can increase if needed (e.g., 30 GB).
+- Can increase if needed (e.g., 30 GB).
 
 7. Add Tags (Optional)
 
-Key: Name, Value: MyFirstVM → Helps you identify the instance.
+- Key: Name, Value: MyFirstVM → Helps you identify the instance.
 
 8. Configure Security Group
 
-Security group = firewall rules.
+- Security group = firewall rules.
 
-Add rules:
+  - Add rules:
 
-SSH (22) → if Linux.
+  - SSH (22) → if Linux.
 
-RDP (3389) → if Windows.
+  - RDP (3389) → if Windows.
 
-HTTP (80), HTTPS (443) → if web server.
+  - HTTP (80), HTTPS (443) → if web server.
 
 9. Review and Launch
 
-Click Launch.
+  - Click Launch.
 
-AWS asks for a Key Pair (for SSH login):
+  - AWS asks for a Key Pair (for SSH login):
 
-Create a new key pair → Download .pem file (very important, only one chance).
+  - Create a new key pair → Download .pem file (very important, only one chance).
 
-Example: mykey.pem.
+    - Example: mykey.pem.
 
 10. Connect to Your VM
 
-Wait until Instance State = Running.
+- Wait until Instance State = Running.
 
-Get the Public IP address from EC2 dashboard.
+- Get the Public IP address from EC2 dashboard.
 
-Connect via SSH (Linux/Mac/Windows PowerShell):
+- Connect via SSH (Linux/Mac/Windows PowerShell):
 
-chmod 400 mykey.pem
-ssh -i mykey.pem ubuntu@<EC2-PUBLIC-IP>
+    chmod 400 mykey.pem
+    ssh -i mykey.pem ubuntu@<EC2-PUBLIC-IP>
 
 
 (Use ec2-user for Amazon Linux, ubuntu for Ubuntu, admin for Windows RDP login).
